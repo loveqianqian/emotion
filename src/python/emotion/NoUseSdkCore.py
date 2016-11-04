@@ -35,8 +35,8 @@ def association_list():
 
 
 if __name__ == '__main__':
-    # params = ['电影太差了，电影还不错,这是一个不错，一般吧']
-    # print(analysis_list(params))
+    params = ['电影太差了,电影太差了,电影太差了,电影太差了,电影太差了']
+    print(analysis_list(params))
     # params = ['电影太差了', '电影还不错', '这是一个不错', '一般吧']
     # result = analysis_list(params)
     # print(result)
@@ -44,6 +44,6 @@ if __name__ == '__main__':
     # my_result = weights_list(text)
     # for weight, word in my_result.json():
     #     print(weight, word)
-    my_result = association_list()
-    for score, word in my_result.json():
-        print(score, word)
+    # my_result = association_list()
+    # for score, word in my_result.json():
+    #     print(score, word)

@@ -19,6 +19,10 @@ def local_file_control(params, path):
         parse_local(file_path, params)
 
 
+def error_rate():
+    pass
+
+
 if __name__ == '__main__':
     comment_list = []
     # local_file_control(comment_list)
