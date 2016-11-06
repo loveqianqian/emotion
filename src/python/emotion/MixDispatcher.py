@@ -3,12 +3,14 @@ from emotion.NoUseSdkCore import analysis_list
 from emotion.Dispatcher import local_file_control
 from emotion.NoUseSdkCore import weights_list
 
+key = ['力荐', '还行', '差评']
+
 
 # 解析，包装,极性分析
 def show_result(path):
     comment_list = []
     positive, negative = 0, 0
-    local_file_control(comment_list, path)
+    local_file_control(comment_list, path, key)
     list_num = len(comment_list)
     num = int(list_num / 1500)
     if list_num > 1500:
@@ -47,7 +49,7 @@ def show_result(path):
 def show_weights(path):
     comment_list = []
     this_result = {}
-    local_file_control(comment_list, path)
+    local_file_control(comment_list, path,key)
     list_num = len(comment_list)
     num = int(list_num / 1500)
     if list_num > 1500:
@@ -96,7 +98,7 @@ def show_weights(path):
 # 主函数
 if __name__ == '__main__':
     # 极性分析
-    print('result:' + str(show_result('C:\emotion')))
+    print('result:' + str(show_result('C:\emotion2')))
     # 权重分析
-    my_result = show_weights('C:\emotion')
-    print(my_result[0:9])
+    # my_result = show_weights('C:\emotion')
+    # print(my_result[0:9])

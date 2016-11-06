@@ -12,11 +12,11 @@ def analysis_emotion(params):
     return nlp.sentiment(params, model='film')
 
 
-def local_file_control(params, path):
+def local_file_control(params, path, key):
     local_file_list = []
     get_file(path, local_file_list)
     for file_path in local_file_list:
-        parse_local(file_path, params)
+        parse_local(file_path, params, key)
 
 
 def error_rate():

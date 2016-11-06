@@ -35,7 +35,7 @@ def association_list():
 
 
 if __name__ == '__main__':
-    params = ['电影太差了,电影太差了,电影太差了,电影太差了,电影太差了']
+    params = ['烂到想哭。果然讨厌3D动画。']
     print(analysis_list(params))
     # params = ['电影太差了', '电影还不错', '这是一个不错', '一般吧']
     # result = analysis_list(params)

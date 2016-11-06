@@ -3,7 +3,7 @@ from xml.dom.minidom import parseString
 
 
 # 解析xml文件,获取评论
-def parse_local(path, params):
+def parse_local(path, params, key):
     # print('current file:' + path)
     my_file = open(path, "r+", encoding="utf8")
     my_text = my_file.read()
@@ -14,7 +14,6 @@ def parse_local(path, params):
     rootElement = domTree.documentElement
 
     items = rootElement.getElementsByTagName("列表")
-
     for item in items:
         subItems = item.getElementsByTagName("item")
 
@@ -27,7 +26,14 @@ def parse_local(path, params):
             value_score = score.childNodes[0].nodeValue
             value_helpful = helpful.childNodes[0].nodeValue
             # print(key + ":" + value)
-            params.append(value_comment.strip() + "," + value_score.strip()*int(value_helpful.strip()))
+            total_comment = ''
+            if score != key[2]:
+                total_comment = value_comment.strip() + "。"
+            num = 1
+            if int(value_helpful.strip()) != 0:
+                num = int(value_helpful.strip())
+            str1 = total_comment + str((value_score.strip() + '。') * num) + '\n'
+            params.append(str1)
 
 
 if __name__ == '__main__':
