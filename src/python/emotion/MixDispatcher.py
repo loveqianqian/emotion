@@ -3,7 +3,8 @@ from emotion.NoUseSdkCore import analysis_list
 from emotion.Dispatcher import local_file_control
 from emotion.NoUseSdkCore import weights_list
 
-key = ['力荐', '还行', '差评']
+key = ['力荐', '推荐', '较差']
+weight_score = [1, 1, 2]
 
 
 # 解析，包装,极性分析
@@ -49,7 +50,7 @@ def show_result(path):
 def show_weights(path):
     comment_list = []
     this_result = {}
-    local_file_control(comment_list, path,key)
+    local_file_control(comment_list, path, key)
     list_num = len(comment_list)
     num = int(list_num / 1500)
     if list_num > 1500:
