@@ -26,13 +26,11 @@ def parse_local(path, params, key):
             value_score = score.childNodes[0].nodeValue
             value_helpful = helpful.childNodes[0].nodeValue
             # print(key + ":" + value)
-            total_comment = ''
-            if score != key[2]:
-                total_comment = value_comment.strip() + "。"
-            num = 1
+            total_comment = value_comment.strip() + "。"
+            num_helpful = 1
             if int(value_helpful.strip()) != 0:
-                num = int(value_helpful.strip())
-            str1 = total_comment + str((value_score.strip() + '。') * num) + '\n'
+                num_helpful = int(value_helpful.strip())
+            str1 = total_comment + str((value_score.strip() + '。') * num_helpful)
             params.append(str1)
 
 
