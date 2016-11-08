@@ -3,7 +3,7 @@ from xml.dom.minidom import parseString
 
 
 # 解析xml文件,获取评论
-def parse_local(path, params, key):
+def parse_local(path, params):
     # print('current file:' + path)
     my_file = open(path, "r+", encoding="utf8")
     my_text = my_file.read()
@@ -32,6 +32,39 @@ def parse_local(path, params, key):
                 num_helpful = int(value_helpful.strip())
             str1 = total_comment + str((value_score.strip() + '。') * num_helpful)
             params.append(str1)
+
+
+# 解析xml文件,获取评论
+def parse_local_emotion(path, params, key):
+    # print('current file:' + path)
+    my_file = open(path, "r+", encoding="utf8")
+    my_text = my_file.read()
+    byte_text = my_text.encode('utf8', 'ignore')
+    new_file = byte_text.decode('utf8').replace("", "").replace("", "")
+    my_file.close()
+    domTree = parseString(new_file)
+    rootElement = domTree.documentElement
+
+    items = rootElement.getElementsByTagName("列表")
+    for item in items:
+        subItems = item.getElementsByTagName("item")
+
+        for subItem in subItems:
+            comment = subItem.getElementsByTagName("评论")[0]
+            score = subItem.getElementsByTagName("评分")[0]
+            helpful = subItem.getElementsByTagName("有用")[0]
+            # key = comment.nodeName
+            value_score = score.childNodes[0].nodeValue
+            if value_score == key:
+                value_comment = comment.childNodes[0].nodeValue
+                value_helpful = helpful.childNodes[0].nodeValue
+                # print(key + ":" + value)
+                total_comment = value_comment.strip() + "。"
+                num_helpful = 1
+                if int(value_helpful.strip()) != 0:
+                    num_helpful = int(value_helpful.strip())
+                str1 = total_comment + str((value_score.strip() + '。') * num_helpful)
+                params.append(str1)
 
 
 if __name__ == '__main__':
