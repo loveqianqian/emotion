@@ -3,7 +3,7 @@ from emotion.Dispatcher import local_file_control
 from emotion.NoUseSdkCore import weights_list
 from emotion.Classification import classification_emotion
 
-key = ['力荐', '推荐', '还行', '较差', '很差']  # 评论的种类,算法对于差评的认知水平较差
+key = ['力荐', '推荐', '还行', '较差', '很差']  # 评论的种类,算法对于差评的认知水平较差.
 weight_score = [1, 1, 1, 1, 1]
 # weight_score = [0.74, 0.64, 0.4, 1.26, 1.96]
 
