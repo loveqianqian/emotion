@@ -4,6 +4,7 @@ from bosonnlp import BosonNLP
 from emotion.FileHelp import get_file
 from emotion.XmlParse import parse_local
 from emotion.XmlParse import parse_local_emotion
+from emotion.XmlParse import parse_local_sample
 
 nlp = BosonNLP('RqBUPoNy.10163.eX-oJkt9S0sA')
 
@@ -18,6 +19,13 @@ def local_file_control(params, path):
     get_file(path, local_file_list)
     for file_path in local_file_list:
         parse_local(file_path, params)
+
+
+def local_file_control_sample(params, path):
+    local_file_list = []
+    get_file(path, local_file_list)
+    for file_path in local_file_list:
+        parse_local_sample(file_path, params)
 
 
 def local_file_control_for_emotion(params, path, key):

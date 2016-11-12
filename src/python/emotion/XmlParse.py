@@ -35,6 +35,27 @@ def parse_local(path, params):
 
 
 # 解析xml文件,获取评论
+def parse_local_sample(path, params):
+    # print('current file:' + path)
+    my_file = open(path, "r+", encoding="utf8")
+    my_text = my_file.read()
+    byte_text = my_text.encode('utf8', 'ignore')
+    new_file = byte_text.decode('utf8').replace("", "").replace("", "")
+    my_file.close()
+    domTree = parseString(new_file)
+    rootElement = domTree.documentElement
+
+    items = rootElement.getElementsByTagName("列表")
+    for item in items:
+        subItems = item.getElementsByTagName("item")
+
+        for subItem in subItems:
+            comment = subItem.getElementsByTagName("评论")[0]
+            value_comment = comment.childNodes[0].nodeValue
+            params.append(value_comment.strip())
+
+
+# 解析xml文件,获取评论
 def parse_local_emotion(path, params, key):
     # print('current file:' + path)
     my_file = open(path, "r+", encoding="utf8")
