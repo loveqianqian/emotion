@@ -25,6 +25,7 @@ def get_feeling(path, myKeys):
     result_item_count = 0
     for result_item in result_list:
         result_list[result_item_count] = result_item / total_count
+        result_item_count += 1
 
     return result_list
 
