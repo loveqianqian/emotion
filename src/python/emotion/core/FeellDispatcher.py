@@ -1,5 +1,6 @@
 # encoding: utf-8
 from emotion.core.Dispatcher import local_file_control_sample
+from emotion.utils.FileUtil import get_file_for_feel
 
 
 def get_feeling(path, myKeys):
@@ -28,6 +29,12 @@ def get_feeling(path, myKeys):
         result_item_count += 1
 
     return result_list
+
+
+def any_feeling(path,feel_path):
+    name_list=[]
+    params_list = [like, miss, expect, worship, angry, sorrow, fear, disgust]
+    return
 
 
 if __name__ == '__main__':
