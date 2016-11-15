@@ -1,11 +1,12 @@
 # encoding: utf-8
 from emotion.core.Dispatcher import local_file_control_sample
-from emotion.utils.FileUtil import get_file_for_feel
+from emotion.utils.FileUtil import get_file_name
+from emotion.utils.FileUtil import get_file_path
 
 
 def get_feeling(path, myKeys):
     comment_list = []
-    result_list = [0, 0, 0, 0, 0, 0, 0, 0]
+    result_list = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     local_file_control_sample(comment_list, path)
     params = ""
     for comment in comment_list:
@@ -31,10 +32,21 @@ def get_feeling(path, myKeys):
     return result_list
 
 
-def any_feeling(path,feel_path):
-    name_list=[]
-    params_list = [like, miss, expect, worship, angry, sorrow, fear, disgust]
-    return
+def any_feeling(path, feel_path):
+    name_list = get_file_name(feel_path)
+    path_list = get_file_path(feel_path)
+    params_list = []
+    for my_path in path_list:
+        # print(my_path)
+        my_file = open(my_path, "r+", encoding="utf8")
+        my_text = my_file.read()
+        params_list.append(my_text.splitlines())
+        my_file.close()
+    count_list = get_feeling(path, params_list)
+    result_list = []
+    for i in range(len(path_list)):
+        result_list.append(name_list[i] + ':' + str(count_list[i]))
+    return result_list
 
 
 if __name__ == '__main__':

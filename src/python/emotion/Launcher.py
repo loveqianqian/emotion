@@ -89,4 +89,4 @@ if __name__ == '__main__':
     # my_result = show_weights('C:/emotion')
     # print(my_result[0:9])
     # 情感分析(需要看情感分析的结果，去掉下面一行的注释就可以)
-    show_feeling('C:/emotion3', 'C:/feel')
+    print(any_feeling('C:/emotion3', 'C:/feel'))
