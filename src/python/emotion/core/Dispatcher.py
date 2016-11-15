@@ -1,10 +1,12 @@
 # coding: utf-8
 from __future__ import print_function, unicode_literals
+
 from bosonnlp import BosonNLP
-from emotion.FileHelp import get_file
-from emotion.XmlParse import parse_local
-from emotion.XmlParse import parse_local_emotion
-from emotion.XmlParse import parse_local_sample
+
+from emotion.utils.FileUtil import get_file
+from emotion.utils.XmlUtil import parse_local
+from emotion.utils.XmlUtil import parse_local_emotion
+from emotion.utils.XmlUtil import parse_local_sample
 
 nlp = BosonNLP('RqBUPoNy.10163.eX-oJkt9S0sA')
 

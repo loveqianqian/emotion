@@ -1,8 +1,8 @@
 # encoding: utf-8
-from emotion.Dispatcher import local_file_control
-from emotion.NoUseSdkCore import weights_list
-from emotion.Classification import classification_emotion
-from emotion.feeling import get_feeling
+from emotion.core.Classification import classification_emotion
+from emotion.core.Dispatcher import local_file_control
+from emotion.core.FeellDispatcher import get_feeling
+from emotion.utils.DependUtil import weights_list
 
 key = ['力荐', '推荐', '还行', '较差', '很差']  # 评论的种类,算法对于差评的认知水平较差.
 weight_score = [1, 1, 1, 1, 1]
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     # 极性分析
     # print('result:' + str(show_result('C:\emotion3')))
     # 权重分析
-    # my_result = show_weights('C:\emotion')
-    # print(my_result[0:9])
+    my_result = show_weights('C:\emotion')
+    print(my_result[0:9])
     # 情感分析
-    show_feeling('C:\emotion3')
+    # show_feeling('C:\emotion3')

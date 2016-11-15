@@ -1,6 +1,6 @@
 # encoding: utf-8
-from emotion.NoUseSdkCore import analysis_list
-from emotion.Dispatcher import local_file_control_for_emotion
+from emotion.core.Dispatcher import local_file_control_for_emotion
+from emotion.utils.DependUtil import analysis_list
 
 
 def classification_emotion(path, key, score):
