@@ -2,7 +2,11 @@
 from emotion.core.Classification import classification_emotion
 from emotion.core.Dispatcher import local_file_control
 from emotion.core.FeellDispatcher import any_feeling
+from emotion.core.FeellDispatcher import any_feeling_other
 from emotion.utils.DependUtil import weights_list
+from emotion.core.TopTenDispathcher import get_ten
+from emotion.core.TopTenDispathcher import get_comment
+from emotion.core.TopTenDispathcher import file_change
 
 key = ['力荐', '推荐', '还行', '较差', '很差']  # 评论的种类,算法对于差评的认知水平较差.
 weight_score = [1, 1, 1, 1, 1]
@@ -81,6 +85,18 @@ def show_feeling(path, feel_path):
     print(result_list)
 
 
+def get_top_10(path, dir_path, emotion_path):
+    comment_list = get_comment(dir_path)
+    list_keys = get_ten(path, comment_list)
+    roll_list = file_change(list_keys, comment_list)
+    i = 0
+    for sub_list in roll_list:
+        print(str(list_keys[i]))
+        print(any_feeling_other(sub_list, emotion_path))
+        i += 1
+    return
+
+
 # 主函数
 if __name__ == '__main__':
     # 极性分析(需要看极性分析的结果，去掉下面一行的注释就可以)
@@ -89,4 +105,6 @@ if __name__ == '__main__':
     # my_result = show_weights('C:/emotion')
     # print(my_result[0:9])
     # 情感分析(需要看情感分析的结果，去掉下面一行的注释就可以)
-    print(any_feeling('C:/emotion3', 'C:/feel'))
+    # print(any_feeling('C:/emotion3', 'C:/feel'))
+    # top 10关键词求情感分析
+    get_top_10('C:/keywords.txt', 'C:/emotion3', 'C:/feel')

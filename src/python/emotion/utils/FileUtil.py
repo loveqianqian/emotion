@@ -31,9 +31,18 @@ def get_file_name(root_dir):
     return result_list
 
 
+def get_single_msg(path):
+    r_list = []
+    my_file = open(path, "r+", encoding="utf8")
+    for line in my_file:
+        r_list.append(line.strip())
+    return r_list
+
+
 if __name__ == '__main__':
     # result_list = []
     # get_file("C:\emotion", result_list)
     # print(result_list)
-    print(get_file_name('C:/feel'))
-    print(get_file_path('C:/feel'))
+    # print(get_file_name('C:/feel'))
+    # print(get_file_path('C:/feel'))
+    print(get_single_msg('G:/pyhonProject/src/resources/keywords.txt'))
