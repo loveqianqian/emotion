@@ -107,4 +107,4 @@ if __name__ == '__main__':
     # 情感分析(需要看情感分析的结果，去掉下面一行的注释就可以)
     # print(any_feeling('C:/emotion3', 'C:/feel'))
     # top 10关键词求情感分析
-    get_top_10('C:/keywords.txt', 'C:/emotion3', 'C:/feel')
+    get_top_10('C:/keywords.txt', 'C:/emotion', 'C:/feel')

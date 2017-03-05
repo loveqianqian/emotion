@@ -79,6 +79,8 @@ def get_feeling(msg, myKeys):
             total_item = 0
             for key in singleKeys:
                 item = params.count(key)
+                if item > 0:
+                    print(str(x_item + 1) + ":" + key)
                 total_item += item
             result_list[x_item] = total_item
             x_item += 1
